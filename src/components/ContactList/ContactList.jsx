@@ -1,11 +1,8 @@
 import s from "./ContactList.module.css";
 import Contact from "../Contact/Contact";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteContact,
-  selectContact,
-  selectFilter,
-} from "../../redux/contactsSlice";
+import { deleteContact, selectContact } from "../../redux/contactsSlice";
+import { selectFilter } from "../../redux/filterSlice";
 
 export default function ContactList() {
   const contacts = useSelector(selectContact);
@@ -17,13 +14,13 @@ export default function ContactList() {
   return (
     <>
       <ul className={s.contactlist}>
-        {filteredContact.map((item) => {
+        {filteredContact.map((contact) => {
           return (
-            <li key={item.id}>
+            <li key={contact.id}>
               <Contact
-                name={item.name}
-                number={item.number}
-                onDelete={() => dispatch(deleteContact(item.id))}
+                name={contact.name}
+                number={contact.number}
+                onDelete={() => dispatch(deleteContact(contact.id))}
               />
             </li>
           );
