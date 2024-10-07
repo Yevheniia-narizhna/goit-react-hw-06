@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import s from "./SearchBox.module.css";
-import { changeSearch } from "../../redux/filterSlice";
+import { changeSearch } from "../../redux/filtersSlice";
 
-export default function SearchBox({ handleChange, inputValue }) {
+export default function SearchBox({ inputValue }) {
   const dispatch = useDispatch();
 
   return (
